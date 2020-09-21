@@ -9,32 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Resultado:</title>
+        <title>Resultado</title>
     </head>
     <body style='font-family: roboto; margin: 2em; text-align: center; background-color: #f1f1f1'>
-        <%
-        String svalorA = request.getParameter("valorA");
-        String svalorB = request.getParameter("valorB");
-        String soperacao = request.getParameter("operacao");
-        
-        double dvalorA = Double.parseDouble(svalorA);
-        double dvalorB = Double.parseDouble(svalorB);
-        double resultado = 0;
-        
-        switch (soperacao) {
-            case "+" : resultado = dvalorA + dvalorB;
-            break;
-            case "-" : resultado = dvalorA - dvalorB;
-            break;
-            case "*" : resultado = dvalorA * dvalorB;
-            break;
-            case "/" : resultado = dvalorA / dvalorB;
-            break;
-        }
-        
-        out.print("Resultado:<br>"+resultado);
-        %>
+        <h2>Resultado da operação</h2>
+        <form>
+            Resultado:
+            <input type="text" size= "10" value="<%= request.getAttribute("resultado") %>"<br>
+            Visitas:
+            <input type="text" size= "10" value="<%= request.getAttribute("visitas") %>"<br>
+        </form>
         <br>
-        <a href='http://localhost:8080/calculadoraJava/calculadoraJSP.html'>Voltar</a>
+        <input type="button" value="Retornar" onclick="history.back()"<br>
     </body>
 </html>
